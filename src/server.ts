@@ -1,21 +1,22 @@
 require('dotenv').config();
 
-const express = require('express');
-const cors = require('cors');
-const helmet = require("helmet");
-const app = express();
-const isDev = process.env.NODE_ENV === 'dev';
-const port = isDev ? process.env.PORT : 5000;
+import express, { Express, Request, Response } from 'express';
+import cors from 'cors';
+// import helmet from 'helmet'; // TS throws error 1479 here
+
+const app: Express = express();
+const isDev: boolean = process.env.NODE_ENV as string === 'dev';
+const port: number = isDev ? Number(process.env.PORT as string) : 5000;
 const { mongoConnect } = require('./mongodb');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(helmet());
+// app.use(helmet());
 app.use(cors())
 
 mongoConnect().catch(console.dir);
 
-app.get('/', (req, res, next) => {
+app.get('/', (_req: Request, res: Response) => {
   res.json({msg: 'This is CORS-enabled for all origins!'})
 })
 
