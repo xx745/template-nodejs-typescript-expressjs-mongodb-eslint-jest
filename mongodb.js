@@ -9,7 +9,8 @@ if (!uri) {
 
 uri = uri
   .replace('<user>', encodeURIComponent(process.env.DB_USER))
-  .replace('<pass>', encodeURIComponent(process.env.DB_PASS));
+  .replace('<pass>', encodeURIComponent(process.env.DB_PASS))
+  .replace('<cluster>', process.env.DB_CLUSTER);
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
   
