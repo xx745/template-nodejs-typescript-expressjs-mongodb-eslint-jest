@@ -8,7 +8,22 @@ if (!uri) {
 }
 
 uri = uri
-  .replace('<user>', process.env.DB_USER)
-  .replace('<pass>', process.env.DB_PASS)
+  .replace('<user>', encodeURIComponent(process.env.DB_USER))
+  .replace('<pass>', encodeURIComponent(process.env.DB_PASS));
 
-exports.mongoClient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+  
+async function mongoConnect() {
+  try {
+    // Connect the client to the server (optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("gt").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+
+exports.mongoConnect = mongoConnect
