@@ -4,7 +4,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 let uri = process.env.DB_URI ? process.env.DB_URI : '';
 
 if (!uri) {
-  throw new Error('Failed to connect to MongoDB!')
+  throw new Error('Failed to connect to MongoDB - missing URI!')
 }
 
 uri = uri
@@ -20,7 +20,7 @@ async function mongoConnect() {
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("gt").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    console.log("Pinged your deployment. You are successfully connected to MongoDB!");
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
