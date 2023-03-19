@@ -16,9 +16,11 @@ app.use(cors())
 
 try {
   mongoClient.connect(err => {
-    const userDetailsCollection = mongoClient.db("users").collection("details");
-    // perform actions on the collection object
-    console.log(userDetailsCollection);
+    console.log('Connected to MongoDB Atlas')
+    const usersCollection = mongoClient.db("gt").collection("users");
+    const workoutsCollection = mongoClient.db("gt").collection("users");
+    // // perform actions on the collection object
+    console.log(usersCollection, '\n', workoutsCollection);
     mongoClient.close();
   });
 } catch (err) {
