@@ -3,5 +3,6 @@
 - NPM
 - TypeScript 5
 - Express.js
+- MongoDB
 - Jest
 - ESLint
