@@ -12,14 +12,14 @@ uri = uri
   .replace('<cluster>', process.env.DB_CLUSTER as string);
 
 const client: MongoClient = new MongoClient(uri, { serverApi: ServerApiVersion.v1 });
-  
+
 export async function mongoConnect(): Promise<void> {
   try {
     // Connect the client to the server (optional starting in v4.7)
     await client.connect();
     // Send a ping to confirm a successful connection
-    await client.db("gt").command({ ping: 1 });
-    console.log("Pinged your deployment. You are successfully connected to MongoDB!");
+    await client.db('gt').command({ ping: 1 });
+    console.log('Pinged your deployment. You are successfully connected to MongoDB!');
   } catch (err) {
     console.error(err);
   } finally {
