@@ -4,7 +4,7 @@ config();
 
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
-// import helmet from 'helmet'; // TS throws error 1479 here
+// import helmet from 'helmet'; // wrong types https://github.com/helmetjs/helmet/pull/405
 
 const app: Express = express();
 const isDev: boolean = process.env.NODE_ENV as string === 'dev';

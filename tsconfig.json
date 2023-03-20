@@ -21,6 +21,6 @@
     "noFallthroughCasesInSwitch": true, /* Enable error reporting for fallthrough cases in switch statements. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-  "include": ["src", "package.json"],
-  "exclude": ["src/**/*.spec.js"]
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.js", "build", "node_modules"]
 }
