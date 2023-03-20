@@ -22,5 +22,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src"],
-  "exclude": ["src/**/*.spec.js", "build/**", "node_modules"]
+  "exclude": ["src/**/*.test.ts", "build/**", "node_modules"]
 }
