@@ -1,10 +1,9 @@
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 let uri: string = process.env.DB_URI ? process.env.DB_URI : '';
 
 if (!uri) {
-  throw new Error('Failed to connect to MongoDB - missing URI!')
+  throw new Error('Failed to connect to MongoDB - missing URI!');
 }
 
 uri = uri
@@ -12,7 +11,7 @@ uri = uri
   .replace('<pass>', encodeURIComponent(process.env.DB_PASS as string))
   .replace('<cluster>', process.env.DB_CLUSTER as string);
 
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const client: MongoClient = new MongoClient(uri, { serverApi: ServerApiVersion.v1 });
   
 export async function mongoConnect(): Promise<void> {
   try {
@@ -21,6 +20,8 @@ export async function mongoConnect(): Promise<void> {
     // Send a ping to confirm a successful connection
     await client.db("gt").command({ ping: 1 });
     console.log("Pinged your deployment. You are successfully connected to MongoDB!");
+  } catch (err) {
+    console.error(err);
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
