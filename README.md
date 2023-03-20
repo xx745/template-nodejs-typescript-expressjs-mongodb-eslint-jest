@@ -1,14 +1,7 @@
-# gym-tracker
-Simple app to record gym visits
-
-## Setup secrets
-```
-cp .env.example .env
-```
-
-## Install dependencies
-```
-nvm install 19
-nvm use 19
-npm install
-```
+# Template
+- Node.js 19
+- NPM
+- TypeScript 5
+- Express.js
+- Jest
+- ESLint
