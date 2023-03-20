@@ -3,11 +3,7 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "git-blame.gitWebUrl": "",
-  "eslint.nodePath": ".yarn/sdks",
-  "eslint.packageManager": "yarn",
+  "eslint.packageManager": "npm",
   "eslint.validate": ["typescript"],
   "eslint.workingDirectories": ["./src"]
 }

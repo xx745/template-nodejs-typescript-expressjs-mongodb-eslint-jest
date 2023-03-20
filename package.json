@@ -7,7 +7,7 @@
     "build": "tsc",
     "lint": "eslint src"
   },
-  "packageManager": "yarn@3.5.0",
+  "packageManager": "npm@9.6.2",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

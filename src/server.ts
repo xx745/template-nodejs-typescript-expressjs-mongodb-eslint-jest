@@ -16,7 +16,7 @@ app.use(express.json());
 // app.use(helmet());
 app.use(cors());
 
-mongoConnect().catch(console.dir) ;
+mongoConnect().catch(console.dir);
 
 app.get('/', (_req: Request, res: Response) => {
   res.json({msg: 'This is CORS-enabled for all origins!'});
